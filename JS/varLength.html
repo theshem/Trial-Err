@@ -8,6 +8,20 @@
 <body>
 <script type="text/javascript">
 /*
+Array.prototype.len = function(){
+	var i=0;
+	for(x in this){
+		if(typeof(this[x])=='function') continue;	// do NOT count the methods
+		i++;
+	}
+	return i;
+};
+
+console.log([1,2,3,4,5,6].len());
+//console.log([1,2,3,4,5,6].length);
+*/
+
+/*
 String.prototype.len=function(){
 	var arr=this.split(''),i=0;
 	for(x in arr) i++;
