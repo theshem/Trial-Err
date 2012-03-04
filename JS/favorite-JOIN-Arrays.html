@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>favorite Join for Arrays</title>
+</head>
+
+<body>
+
+<script type="text/javascript">
+//<![CDATA[
+
+var str = "my Name     12    my   Family";
+var newArr = str.split(" ");
+
+function myJoin(sep){
+	sep = sep===undefined && ',' || sep;
+	var txt="";
+	for(x in this){
+		if(typeof(this[x])=='function') continue;		// do not count methods
+		if(txt !="" && this[x].length > 0) txt += sep;	// this[x].length > 0 => remove white spaces
+		if(this[x].length > 0) txt += this[x];
+	}
+	return txt;
+}
+
+//newArr.Join = myJoin;
+
+Array.prototype.Join = myJoin;
+
+console.log(newArr.Join());		// my own method				// my,Name,12,my,Family
+console.log(newArr.Join(""));	// my own method				// myName12myFamily
+console.log(newArr.Join("|"));	// my own method				// my|Name|12|my|Family
+//console.log(newArr.join());	// build-in javascript method	// my,Name,,,,,12,,,,my,,,Family
+
+//]]>
+</script>
+
+</body>
+</html>
