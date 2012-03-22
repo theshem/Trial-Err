@@ -42,17 +42,18 @@ function len(obj){
 		return str.split('');
 	}
 	this.type=typeof(obj);
-	this.obj=	this.type=='object' && obj					||
-				this.type=='string' && mkarr(obj)			||
-				this.type=='number' && mkarr(String(obj));
+	this.obj =	type=='object' && obj					||
+				type=='string' && mkarr(obj)			||
+				type=='number' && mkarr(String(obj));
 
-	return this.arrlen(this.obj) || false;
+	return arrlen(this.obj) || false;
 }
-*/
 
-//alert(len(document));	// 141
-//alert(len("3495DECD31CD69C6C01457381CECAC30C0A19287"));	// 40
-//alert(len(123456789));	// 9
+
+alert(len(document));	// 141
+alert(len("3495DECD31CD69C6C01457381CECAC30C0A19287"));	// 40
+alert(len(123456789));	// 9
+*/
 
 </script>
 </body>
