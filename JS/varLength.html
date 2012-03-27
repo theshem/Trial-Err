@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Untitled Document</title>
+<title>My desire length function ;)</title>
 </head>
 
 <body>
@@ -26,34 +26,35 @@ String.prototype.len=function(){
 	var arr=this.split(''),i=0;
 	for(x in arr) i++;
 	return i;
-}
+};
 
 alert("3495DECD31CD69C6C01457381CECAC30C0A19287".len());
 */
 
-/*
+
 function len(obj){
-	this.arrlen=function(arr){
+	var arrlen=function(arr){
 		var i=0;
 		for(x in arr) i++;
 		return i;
-	}
-	this.mkarr=function(str){
+	};
+	var mkarr=function(str){
 		return str.split('');
-	}
-	this.type=typeof(obj);
-	this.obj =	type=='object' && obj					||
-				type=='string' && mkarr(obj)			||
-				type=='number' && mkarr(String(obj));
+	};
+	var type=typeof(obj);
+	var object	=	type=='object' && obj					||
+					type=='string' && mkarr(obj)			||
+					type=='number' && mkarr(String(obj));
 
-	return arrlen(this.obj) || false;
+	return arrlen(object) || 0;
 }
 
 
-alert(len(document));	// 141
-alert(len("3495DECD31CD69C6C01457381CECAC30C0A19287"));	// 40
-alert(len(123456789));	// 9
-*/
+console.log( len(document) );					// 215
+console.log( len({one:1, two:2, three:3}) );	// 3
+console.log( len([0,1,2,3,4,5,6,7,8,9]) );		// 10
+console.log( len("3495DECD31CD69C6C01457381CECAC30C0A19287") );	// 40
+console.log( len(123456789) );					// 9
 
 </script>
 </body>

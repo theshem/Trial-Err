@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Multiple replace method</title>
+</head>
+
+<body>
+<a href="#">This is a T E X T, right here!</a>
+<script type="text/javascript">
+
+//////////		multiple replace	///////////////////////
+function myOwnReplace(obj){
+	var	txt=this,
+		patt,
+		obj=typeof(obj)==='object' && obj || {};
+		
+	for(x in obj){
+		patt=x.match(/^\/.*\/i?g?m?$/ig) && eval(x) || new RegExp(x,'ig');
+		txt=txt.replace(patt, obj[x]);
+	}
+	return txt;
+}
+
+String.prototype.multiReplace = myOwnReplace;
+///////////////////////////////////////////////////////////
+
+
+var text=document.getElementsByTagName('a')[0].childNodes[0].nodeValue;
+console.log(text);
+console.log(
+	text=text.multiReplace({
+		'/T/ig'			:	'N',
+		'( is)'			:	'$1 NOT',
+		'( [a-z]+)n'	:	'$1t',
+		'(^n)|.{1}(,)'	:	'T$2',
+	})
+);
+
+document.links[0].onclick=function(){
+	this.innerHTML=text;
+}
+
+</script>
+</body>
+</html>
