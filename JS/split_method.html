@@ -11,7 +11,7 @@
 //<![CDATA[
 
 String.prototype.Split = function(sep){
-	var arr=[], j=k=0, char;
+	var arr=[], j=k=0;
 	for(var i=0; i<this.length; i++){
 		this.charAt(i)===sep && (k=i+1) && j++;
 		sep==='' && (k=i);
