@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>favorite split method</title>
+</head>
+
+<body>
+
+<script type="text/javascript">
+//<![CDATA[
+
+String.prototype.Split = function(sep){
+	var arr=[], j=k=0, char;
+	for(var i=0; i<this.length; i++){
+		this.charAt(i)===sep && (k=i+1) && j++;
+		sep==='' && (k=i);
+		arr[j]=this.substr(k,(i-k)<0 && 1 || i-k+1);
+		sep==='' && j++;
+	}
+	return arr;
+};
+
+
+console.log(
+	'this is a text here'.split(" "),"\n",
+	'this is a text here'.split(""),"\n",
+	'this is a text here'.split("i"),"\n",
+	"custom method:","\n",
+	'this is a text here'.Split(" "),"\n",
+	'this is a text here'.Split(""),"\n",
+	'this is a text here'.Split("i")
+);
+
+//]]>
+</script>
+
+</body>
+</html>
