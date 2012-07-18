@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>To Dear Saman :D</title>
+<style>
+	input {
+		margin:1px;
+	}
+</style>
+</head>
+
+<body>
+<form>
+	<input maxlength="7" type="text" name="txt1" /><br />
+	<input maxlength="7" type="text" name="txt2" /><br />
+	<input maxlength="7" type="text" name="txt3" /><br />
+	<input maxlength="7" type="text" name="txt4" /><br />
+	<input maxlength="7" type="text" name="txt5" /><br />
+	<input maxlength="7" type="text" name="txt6" /><br />
+	<input maxlength="7" type="text" name="txt7" /><br />
+	<input type="submit" value="Submit" name="Submit" />
+	<input type="reset" value="Reset" name="Reset" /> 
+</form>
+
+<script>
+//////////////////////////////////
+var inps = document.getElementsByTagName('input'), i=0, inputs=[], tabIndexArr=[], rand=[], temp=[];
+
+for(x in inps) (inps[x].type=='text') && inputs.push(inps[x]);
+for(var j=1; j<=inputs.length; j++)	rand.push(j);
+
+rand.sort(function(){return Math.round(Math.random())-0.5});
+//////////////////////////////////
+
+inputs.forEach(function(x, id){
+	x.tabIndex = rand[id]; // :D
+	tabIndexArr[x.tabIndex] = id;
+	
+	x.onkeyup = function(){
+		tabIndexArr.forEach(function(j, i){
+			(i>x.tabIndex) && temp.push(i);
+		});
+		
+		if(this.value.length==this.maxLength){
+		//	(id+1<inputs.length) && inputs[id+1].focus();
+			!isNaN(i=tabIndexArr[Math.min.apply(Math,temp)]) && inputs[i].focus();
+		}
+		temp=[];
+	};
+});
+
+for(x in inputs) (inputs[x].tabIndex==1) && inputs[x].focus();
+//////////////////////////////////
+</script>
+
+</body>
+</html>
