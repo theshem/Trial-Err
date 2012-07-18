@@ -11,7 +11,7 @@
 </head>
 
 <body>
-<form>
+<form name="frm1">
 	<input maxlength="7" type="text" name="txt1" /><br />
 	<input maxlength="7" type="text" name="txt2" /><br />
 	<input maxlength="7" type="text" name="txt3" /><br />
@@ -50,7 +50,9 @@ inputs.forEach(function(x, id){
 	};
 });
 
-for(x in inputs) (inputs[x].tabIndex==1) && inputs[x].focus();
+(document.frm1.onreset = function(){
+	for(x in inputs) (inputs[x].tabIndex==1) && inputs[x].focus();
+})();
 //////////////////////////////////
 </script>
 
