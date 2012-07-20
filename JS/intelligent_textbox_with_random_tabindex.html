@@ -37,7 +37,7 @@ inputs.forEach(function(x, id){
 	x.tabIndex = rand[id]; // :D
 	tabIndexArr[x.tabIndex] = id;
 	
-	x.onkeyup = function(){
+	x.onkeydown = function(){
 		tabIndexArr.forEach(function(j, i){
 			(i>x.tabIndex) && temp.push(i);
 		});
